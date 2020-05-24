@@ -10,15 +10,11 @@ m = length(y); % number of training examples
 % You need to return the following variables correctly 
 J = 0;
 grad = zeros(size(theta));
-
 z = X * theta;
-disp(size(z));
 activation = sigmoid(z);
-disp(size(activation));
 error = activation - y;
-disp(size(error));
-J = (1/m) * sum((-y).*log(activation) + (1 - y).*log(1-activation));
-grad = (1/m) * (X'*error);
+J = (1/m) * sum((-y)*log(activation) + (1 - y)*log(1-activation));
+grad = (1/m) * sum(X'*error);
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the cost of a particular choice of theta.
