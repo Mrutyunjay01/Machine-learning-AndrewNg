@@ -12,12 +12,12 @@ J = 0;
 grad = zeros(size(theta));
 
 z = X * theta;
-disp(size(z));
+%disp(size(z));
 activation = sigmoid(z);
-disp(size(activation));
+%disp(size(activation));
 error = activation - y;
-disp(size(error));
-J = (1/m) * sum((-y).*log(activation) + (1 - y).*log(1-activation));
+%disp(size(error));
+J = (-1/m) * sum((y).*log(activation) + (1 - y).*log(1-activation));
 grad = (1/m) * (X'*error);
 
 % ====================== YOUR CODE HERE ======================
