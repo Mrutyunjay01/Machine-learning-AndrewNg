@@ -8,11 +8,7 @@ m = length(y); % number of training examples
 
 % You need to return the following variables correctly 
 J = 0;
-Y_hat = X * theta;
-%disp(size(Y_hat));
-%disp(size(y));
-se = (Y_hat - y).^2;
-J = (1/(2 * m)) * sum(se);
+J = (1.0/2 * m) * sum(((X * theta) - y).^2));
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the cost of a particular choice of theta
 %               You should set J to the cost.
