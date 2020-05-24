@@ -9,6 +9,8 @@ m = size(X, 1); % Number of training examples
 % You need to return the following variables correctly
 p = zeros(m, 1);
 
+p = sigmoid(X* theta) >= 0.5;
+end
 % ====================== YOUR CODE HERE ======================
 % Instructions: Complete the following code to make predictions using
 %               your learned logistic regression parameters. 
@@ -24,4 +26,4 @@ p = zeros(m, 1);
 % =========================================================================
 
 
-end
+
