@@ -12,13 +12,8 @@ J = 0;
 grad = zeros(size(theta));
 z = X * theta;
 prediction = sigmoid(z);
-error = prediction - y;
-NregCost = sum((-y).*log(prediction) - (1 - y).*log(1-prediction))/m;
-theta(1) = 0;
-regCost = (lambda/(2*m)) * (theta'*theta);
-J = NregCost + regCost;
-%grad(1, :) = (1/m) * (X'*error);
-grad = (1/m) * (X'*error) + (lambda/m) * theta;
+J = (-1/m) * sum((y.*log(prediction) + (1-y) .* log(1-prediction))) + (lambda/(2*m)) * theta.^2;
+grad = (1/m) * (X'*error) + (lambda/m) * theta()
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the cost of a particular choice of theta.
 %               You should set J to the cost.
