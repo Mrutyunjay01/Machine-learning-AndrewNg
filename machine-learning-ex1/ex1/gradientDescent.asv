@@ -8,16 +8,10 @@ m = length(y); % number of training examples
 J_history = zeros(num_iters, 1);
 
 for iter = 1:num_iters
-    %disp(theta) [0;0] 2*1 mat
-    error = (X * theta) - y;
-    grad = (alpha/m) * (X'*error);
     
+    grad = (alpha/m) * sum(((X * theta) - y).*X);
     theta = theta - grad;
-    %disp(size(theta));
-    %disp(grad);
-    %disp(J_history(iter));
-    %disp(computeCost(X, y, theta))
-    J_history(iter) = computeCost(X, y, theta);
+    J_history(iter) = computeCost(X, y, the
     % ====================== YOUR CODE HERE ======================
     % Instructions: Perform a single gradient step on the parameter vector
     %               theta. 
@@ -35,6 +29,7 @@ for iter = 1:num_iters
     % ============================================================
 
     % Save the cost J in every iteration    
+
 end
 
 end
