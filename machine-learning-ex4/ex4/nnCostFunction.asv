@@ -58,9 +58,9 @@ prediction = sigmoid(A1 * Theta2');
 J = (-1/m) * sum(sum(Y.*log(prediction) + (1-Y).*log(1-prediction)), 2);
 % implement the regularized cost function
 disp(size(Theta1)); disp(size(Theta2));
-%Theta1 = [ones(size(Theta1, 2), 1) Theta1];
-disp(size(Theta1));disp(size(Theta2));
-reguTerm = (lambda/(2*m)) * (sum(sum((Theta1(:, 2:end).*Theta1(:, 2:end)), 2)) + sum(sum((Theta2(:, 2:end).*Theta2(:, 2:end)), 2)));
+Theta1 = [ones(size(Theta1, 1), 1) Theta1];
+disp(size(Theta1));disp(size(teapo
+reguTerm = (lambda/(2*m)) * (sum(sum((Theta1.*Theta1), 2)) + sum(sum((Theta2.*Theta2), 2)));
 J = J + reguTerm;
 % Part 2: Implement the backpropagation algorithm to compute the gradients
 %         Theta1_grad and Theta2_grad. You should return the partial derivatives of
