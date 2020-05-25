@@ -40,6 +40,6 @@ X = [ones(m, 1) X];
 prediction = sigmoid(X*all_theta');
 %disp(prediction);
 %disp(size(max(prediction, [], 2)));
-[~, IndexMax] = max(prediction, [], 2); %extract the single column as it
-p = IndexMax; %contains the max probability of each data point
+[~, IndexMax] = max(prediction, [], 2);
+p = IndexMax;
 end
