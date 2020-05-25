@@ -74,7 +74,7 @@ S=['Iteration '];
 i = 0;                                            % zero the run length counter
 ls_failed = 0;                             % no previous line search has failed
 fX = [];
-[f1 df1] = eval(argstr);                      % get function value and gradient
+[f1, df1] = eval(argstr);                      % get function value and gradient
 i = i + (length<0);                                            % count epochs?!
 s = -df1;                                        % search direction is steepest
 d1 = -s'*s;                                                 % this is the slope
@@ -107,7 +107,7 @@ while i < abs(length)                                      % while not finished
       z2 = max(min(z2, INT*z3),(1-INT)*z3);  % don't accept too close to limits
       z1 = z1 + z2;                                           % update the step
       X = X + z2*s;
-      [f2 df2] = eval(argstr);
+      [f2, df2] = eval(argstr);
       M = M - 1; i = i + (length<0);                           % count epochs?!
       d2 = df2'*s;
       z3 = z3-z2;                    % z3 is now relative to the location of z2
@@ -139,7 +139,7 @@ while i < abs(length)                                      % while not finished
     end
     f3 = f2; d3 = d2; z3 = -z2;                  % set point 3 equal to point 2
     z1 = z1 + z2; X = X + z2*s;                      % update current estimates
-    [f2 df2] = eval(argstr);
+    [f2, df2] = eval(argstr);
     M = M - 1; i = i + (length<0);                             % count epochs?!
     d2 = df2'*s;
   end                                                      % end of line search
