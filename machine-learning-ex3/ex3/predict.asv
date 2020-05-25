@@ -32,14 +32,7 @@ X = [ones(m, 1) X];
 
 
 % =========================================================================
-%disp(size(X));
-%disp(size(Theta1));
-A1 = sigmoid(X * Theta1');
-%disp(size(A1, 1));disp(size(A1, 2));
-%disp(size(Theta2));
-A1 = [ones(m, 1) A1];
-prediction = sigmoid(A1 * Theta2');
-[~, IndexNo] = max(prediction, [], 2);
-p = IndexNo;
+A1 = sigmoid(X * Theta1);
+prediction = sigmoid
 
 end
