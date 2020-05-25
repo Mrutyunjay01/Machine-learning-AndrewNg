@@ -48,12 +48,7 @@ grad = zeros(size(theta));
 % =============================================================
 prediction = sigmoid(X * theta);
 error = prediction - y;
-theta(1) = 0;
-J = (1/m) * sum((-y).*log(prediction) - (1 - y).*(log(1-prediction))) + (lambda/(2 * m)) * (theta'*theta);
-temp = theta;
-temp(1) = 0;
-grad = (1/m) * (X'*error) + (lambda/m) * temp(1:end, :); %excluding the first row as it contains the bias term
-
-%grad = grad(:);
+J = (1/m) * (-y'*log(prediction) - (1 - 
+grad = grad(:);
 
 end
