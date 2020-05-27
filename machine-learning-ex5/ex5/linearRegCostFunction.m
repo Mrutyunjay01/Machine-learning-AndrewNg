@@ -14,7 +14,9 @@ grad = zeros(size(theta));
 prediction = X * theta;
 Error = (prediction - y);
 J = (1/(2*m)) * sum(Error.^2) + (lambda/(2*m)) * (theta(2:end)'*theta(2:end));
-grad = (1/m) * sum(Error.*X) + (lambda/m)* theta;
+% theta 0 is not regularized
+theta(1) =0;
+grad = (1/m) * sum(Error.*X) + (lambda/m)* theta';
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the cost and gradient of regularized linear 
 %               regression for a particular choice of theta.
