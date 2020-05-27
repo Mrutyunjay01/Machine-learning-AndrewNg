@@ -12,9 +12,7 @@ m = length(y); % number of training examples
 J = 0;
 grad = zeros(size(theta));
 prediction = X * theta;
-Error = (prediction - y);
-J = (1/(2*m)) * sum(Error.^2) + (lambda/(2*m)) * (theta(2:end)'*theta(2:end));
-grad = (1/m) * sum(Error.*X) + (lambda/m)* theta;
+squarredError = (prediction - y) 
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the cost and gradient of regularized linear 
 %               regression for a particular choice of theta.
