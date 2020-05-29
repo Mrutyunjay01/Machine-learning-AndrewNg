@@ -44,11 +44,7 @@ end
 
 %disp(results);
 % Now we need to calculate C and sigma associated with min error
-%disp(min(results(:, 3)));
-[~, MinIndex] = min(results(:, 3));
-C = results(MinIndex, 1);
-sigma = results(MinIndex, 2);
-% extract from the result array
+disp(min(results(:, 3)));
 
 
 
