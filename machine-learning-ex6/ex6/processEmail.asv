@@ -18,8 +18,8 @@ word_indices = [];
 % Uncomment the following lines if you are working with raw emails with the
 % full headers
 
-%hdrstart = strfind(email_contents, ([newline newline]));
-%email_contents = email_contents(hdrstart(1):end);
+hdrstart = strfind(email_contents, ([char(10) char(10)]));
+email_contents = email_contents(hdrstart(1):end);
 
 % Lower case
 email_contents = lower(email_contents);
@@ -59,7 +59,7 @@ while ~isempty(email_contents)
     % Tokenize and also get rid of any punctuation
     [str, email_contents] = ...
        strtok(email_contents, ...
-              [' @$/#.-:&*+=[]?!(){},''">_<;%' newline char(13)]);
+              [' @$/#.-:&*+=[]?!(){},''">_<;%' char(10) char(13)]);
    
     % Remove any non alphanumeric characters
     str = regexprep(str, '[^a-zA-Z0-9]', '');
@@ -68,7 +68,7 @@ while ~isempty(email_contents)
     % (the porterStemmer sometimes has issues, so we use a try catch block)
     try str = porterStemmer(strtrim(str)); 
     catch str = ''; continue;
-    end
+    end;
 
     % Skip the word if it is too short
     if length(str) < 1
@@ -97,7 +97,7 @@ while ~isempty(email_contents)
     %       str2). It will return 1 only if the two strings are equivalent.
     %
 
-    word_indices = [word_indices; find(ismember(vocabList, str))];
+
 
 
 
