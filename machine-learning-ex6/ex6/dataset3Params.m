@@ -36,7 +36,7 @@ for i=1:length(Values)
         
         error = mean(double(predictions ~= yval));
         
-        fprintf("C: %f\nsigma: %f\nerror: %f\n", C_i, S_j, error);
+        %fprintf("C: %f\nsigma: %f\nerror: %f\n", C_i, S_j, error);
         
         results = [results; C_i, S_j, error];
     end
