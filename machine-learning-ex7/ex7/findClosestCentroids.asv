@@ -24,13 +24,8 @@ m = size(X, 1);
 for i=1:m
     centroidDistances = size(K, 1); % stores the distances of each centroid
     % from the given data point
-    diff = (X(i, :) - centroids).^2;
-    %disp(size(sum(diff, 2)));
-    centroidDistances = sum(diff, 2);
-    [~, minIndex] = min(centroidDistances);
-    idx(i) = minIndex;
-end
-
+    for j=1:K
+        
     
 
 
