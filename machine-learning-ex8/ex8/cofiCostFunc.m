@@ -41,12 +41,12 @@ Theta_grad = zeros(size(Theta));
 %
 
 predictions = X * Theta';
-J = (1/2) * sum(sum(((predictions.*R) - (Y.*R)).^2));
+J = (1/2) * sum(sum(((predictions.*R) - (Y.*R)).^2)) + (lambda/2) * (sum(sum(Theta.^2)) + sum(sum(X.^2)));
 
 %disp(size(predictions));disp(size(Theta));disp(size(X_grad));
-X_grad = ((predictions.*R) - (Y.*R))*Theta;
+X_grad = ((predictions.*R) - (Y.*R))*Theta + lambda * X;
 %disp(size(X));disp(size(Theta_grad));
-Theta_grad = ((predictions.*R) - (Y.*R))'*X;
+Theta_grad = ((predictions.*R) - (Y.*R))'*X + lambda * Theta;
 
 
 
